@@ -5,16 +5,22 @@ function changeColor() {
     "red",
     "green",
     "blue",
-    // "yellow",
     "orange",
+    // "yellow",
     // "purple",
     // "pink"
   ];
-  var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  // ensure that the new color is different from the previous one
+  if (randomColor === swatch.style.backgroundColor) {
+    changeColor();
+    return;
+  }
+
   swatch.style.backgroundColor = randomColor;
   label.innerText = randomColor;
-
-  // updateTimer();
 }
 
 function updateTimer() {
